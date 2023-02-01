@@ -16,3 +16,8 @@ GithubRepository >> authRawData: dict [
 GithubRepository >> fullName [
 	^ rawData at: 'full_name'
 ]
+
+{ #category : #accessing }
+GithubRepository >> rawData: dict [
+	rawData := dict 
+]
