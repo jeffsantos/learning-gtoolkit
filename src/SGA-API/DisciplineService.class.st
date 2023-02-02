@@ -1,11 +1,11 @@
 Class {
-	#name : #Discipline,
+	#name : #DisciplineService,
 	#superclass : #AuthObject,
 	#category : #'SGA-API'
 }
 
 { #category : #accessing }
-Discipline >> getAllDisciplines [
+DisciplineService >> getAllDisciplines [
 	| json dictionary |
 	json := ZnClient new 
 			url: self urlBase, self serviceEndPoint;
@@ -18,6 +18,6 @@ Discipline >> getAllDisciplines [
 ]
 
 { #category : #accessing }
-Discipline >> initializeEndPoint [
+DisciplineService >> initializeEndPoint [
 	self serviceEndPoint: '/api/v1/Disciplinas'
 ]

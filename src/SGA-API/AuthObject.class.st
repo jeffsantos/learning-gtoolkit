@@ -5,7 +5,8 @@ Class {
 		'urlBase',
 		'authEndPoint',
 		'serviceEndPoint',
-		'authRawData'
+		'authRawData',
+		'rawData'
 	],
 	#category : #'SGA-API'
 }
@@ -52,6 +53,16 @@ AuthObject >> authenticate [
 { #category : #accessing }
 AuthObject >> initializeEndPoint [
 	self subclassResponsibility
+]
+
+{ #category : #accessing }
+AuthObject >> rawData [
+	^ rawData
+]
+
+{ #category : #accessing }
+AuthObject >> rawData: anObject [
+	rawData := anObject
 ]
 
 { #category : #accessing }

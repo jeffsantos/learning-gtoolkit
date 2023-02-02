@@ -8,11 +8,6 @@ Class {
 }
 
 { #category : #accessing }
-GithubRepository >> authRawData: dict [
-	rawData := dict 
-]
-
-{ #category : #accessing }
 GithubRepository >> fullName [
 	^ rawData at: 'full_name'
 ]
