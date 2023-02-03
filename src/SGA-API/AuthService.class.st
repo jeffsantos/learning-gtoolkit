@@ -1,5 +1,5 @@
 Class {
-	#name : #AuthObject,
+	#name : #AuthService,
 	#superclass : #Object,
 	#instVars : [
 		'urlBase',
@@ -12,7 +12,7 @@ Class {
 }
 
 { #category : #accessing }
-AuthObject class >> createService [
+AuthService class >> createService [
 	^ self new
 			urlBase: 'https://www-d.fgv.br/EBAPE/GestaoAcad';
 			authEndPoint: '/api/v1/Auth';
@@ -22,22 +22,22 @@ AuthObject class >> createService [
 ]
 
 { #category : #accessing }
-AuthObject >> authEndPoint [
+AuthService >> authEndPoint [
 	^ authEndPoint
 ]
 
 { #category : #accessing }
-AuthObject >> authEndPoint: anObject [
+AuthService >> authEndPoint: anObject [
 	authEndPoint := anObject
 ]
 
 { #category : #accessing }
-AuthObject >> authRawData: dictionary [
+AuthService >> authRawData: dictionary [
 	authRawData := dictionary
 ]
 
 { #category : #accessing }
-AuthObject >> authenticate [
+AuthService >> authenticate [
 	| json dictionary |
 	json := ZnClient new
 			url: self urlBase, self authEndPoint;
@@ -51,46 +51,46 @@ AuthObject >> authenticate [
 ]
 
 { #category : #accessing }
-AuthObject >> initializeEndPoint [
+AuthService >> initializeEndPoint [
 	self subclassResponsibility
 ]
 
 { #category : #accessing }
-AuthObject >> rawData [
+AuthService >> rawData [
 	^ rawData
 ]
 
 { #category : #accessing }
-AuthObject >> rawData: anObject [
+AuthService >> rawData: anObject [
 	rawData := anObject
 ]
 
 { #category : #accessing }
-AuthObject >> serviceEndPoint [
+AuthService >> serviceEndPoint [
 	^ serviceEndPoint
 ]
 
 { #category : #accessing }
-AuthObject >> serviceEndPoint: anObject [
+AuthService >> serviceEndPoint: anObject [
 	serviceEndPoint := anObject
 ]
 
 { #category : #accessing }
-AuthObject >> token [
+AuthService >> token [
 	^ (authRawData at: 'data') at: 'token'
 ]
 
 { #category : #accessing }
-AuthObject >> tokenValidity [
+AuthService >> tokenValidity [
 	^ (authRawData at: 'data') at: 'validoAte'
 ]
 
 { #category : #accessing }
-AuthObject >> urlBase [
+AuthService >> urlBase [
 	^ urlBase
 ]
 
 { #category : #accessing }
-AuthObject >> urlBase: anObject [
+AuthService >> urlBase: anObject [
 	urlBase := anObject
 ]

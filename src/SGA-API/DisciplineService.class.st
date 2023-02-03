@@ -1,6 +1,6 @@
 Class {
 	#name : #DisciplineService,
-	#superclass : #AuthObject,
+	#superclass : #AuthService,
 	#category : #'SGA-API'
 }
 
@@ -12,9 +12,23 @@ DisciplineService >> getAllDisciplines [
 			headerAt: 'Authorization' put: 'Bearer ',self token;
 			get.	
 			
-	dictionary := STON fromString: json.
+	^ ((STON fromString: json) at: 'data')
+		collect: [ :each | Discipline new rawData: each ]
+		
+]
+
+{ #category : #accessing }
+DisciplineService >> getDiscipline: id [
+	| json dict |
+	json := ZnClient new 
+			url: self urlBase, self serviceEndPoint, '/', id printString;
+			headerAt: 'Authorization' put: 'Bearer ',self token;
+			get.	
+			
+	dict := (STON fromString: json) at: 'data'.
 	
-	^ dictionary.
+	^ Discipline new rawData: dict
+		
 ]
 
 { #category : #accessing }
