@@ -5,20 +5,7 @@ Class {
 }
 
 { #category : #accessing }
-DisciplineService >> getAllDisciplines [
-	| json dictionary |
-	json := ZnClient new 
-			url: self urlBase, self serviceEndPoint;
-			headerAt: 'Authorization' put: 'Bearer ',self token;
-			get.	
-			
-	^ ((STON fromString: json) at: 'data')
-		collect: [ :each | Discipline new rawData: each ]
-		
-]
-
-{ #category : #accessing }
-DisciplineService >> getDiscipline: id [
+DisciplineService >> disciplineId: id [
 	| json dict |
 	json := ZnClient new 
 			url: self urlBase, self serviceEndPoint, '/', id printString;
@@ -28,6 +15,19 @@ DisciplineService >> getDiscipline: id [
 	dict := (STON fromString: json) at: 'data'.
 	
 	^ Discipline new rawData: dict
+		
+]
+
+{ #category : #accessing }
+DisciplineService >> disciplines [
+	| json dictionary |
+	json := ZnClient new 
+			url: self urlBase, self serviceEndPoint;
+			headerAt: 'Authorization' put: 'Bearer ',self token;
+			get.	
+			
+	^ ((STON fromString: json) at: 'data')
+		collect: [ :each | Discipline new rawData: each ]
 		
 ]
 
