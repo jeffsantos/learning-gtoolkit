@@ -14,6 +14,11 @@ Program >> cohorts [
 ]
 
 { #category : #accessing }
+Program >> coordinator [
+	^ Professor new rawData: (rawData at: 'Coordenador')
+]
+
+{ #category : #accessing }
 Program >> rawData: dict [
 	rawData := dict 
 ]
