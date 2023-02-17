@@ -1,18 +1,10 @@
 Class {
 	#name : #Professor,
-	#superclass : #Object,
-	#instVars : [
-		'rawData'
-	],
+	#superclass : #SGAObject,
 	#category : #'SGA-API'
 }
 
 { #category : #accessing }
 Professor >> name [
 	^ rawData at: 'Nome'
-]
-
-{ #category : #accessing }
-Professor >> rawData: dict [
-	rawData := dict 
 ]

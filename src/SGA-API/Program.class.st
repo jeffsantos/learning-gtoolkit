@@ -1,9 +1,6 @@
 Class {
 	#name : #Program,
-	#superclass : #Object,
-	#instVars : [
-		'rawData'
-	],
+	#superclass : #SGAObject,
 	#category : #'SGA-API'
 }
 
@@ -16,9 +13,4 @@ Program >> cohorts [
 { #category : #accessing }
 Program >> coordinator [
 	^ Professor new rawData: (rawData at: 'Coordenador')
-]
-
-{ #category : #accessing }
-Program >> rawData: dict [
-	rawData := dict 
 ]
