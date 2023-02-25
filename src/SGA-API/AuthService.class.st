@@ -11,7 +11,7 @@ Class {
 	#category : #'SGA-API'
 }
 
-{ #category : #accessing }
+{ #category : #'instace creation' }
 AuthService class >> createService [
 	^ self new
 			urlBase: 'https://www-d.fgv.br/EBAPE/GestaoAcad';
@@ -36,7 +36,7 @@ AuthService >> authRawData: dictionary [
 	authRawData := dictionary
 ]
 
-{ #category : #accessing }
+{ #category : #authentication }
 AuthService >> authenticate [
 	| json dictionary |
 	json := ZnClient new
@@ -50,7 +50,27 @@ AuthService >> authenticate [
 	self authRawData: dictionary.
 ]
 
+{ #category : #services }
+AuthService >> getAll [
+	| json |
+	json := ZnClient new
+			url: self urlBase , self serviceEndPoint;
+			headerAt: 'Authorization' put: 'Bearer ' , self token;
+			get.
+	^ (STON fromString: json) at: 'data'
+]
+
 { #category : #accessing }
+AuthService >> getById: id [
+	| json |
+	json := ZnClient new
+			url: self urlBase , self serviceEndPoint , '/' , id printString;
+			headerAt: 'Authorization' put: 'Bearer ' , self token;
+			get.
+	^ (STON fromString: json) at: 'data'
+]
+
+{ #category : #abstract }
 AuthService >> initializeEndPoint [
 	self subclassResponsibility
 ]

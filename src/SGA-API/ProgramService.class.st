@@ -4,34 +4,23 @@ Class {
 	#category : #'SGA-API'
 }
 
-{ #category : #accessing }
+{ #category : #abstract }
 ProgramService >> initializeEndPoint [
 	self serviceEndPoint: '/api/v1/Programas'
 ]
 
 { #category : #accessing }
 ProgramService >> programId: id [
-	| json dict |
-	json := ZnClient new 
-			url: self urlBase, self serviceEndPoint, '/', id printString;
-			headerAt: 'Authorization' put: 'Bearer ',self token;
-			get.	
-			
-	dict := (STON fromString: json) at: 'data'.
-	
+	| dict |
+	dict := self getById: id.
 	^ Program new rawData: dict
-		
 ]
 
 { #category : #accessing }
 ProgramService >> programs [
-	| json dictionary |
-	json := ZnClient new 
-			url: self urlBase, self serviceEndPoint;
-			headerAt: 'Authorization' put: 'Bearer ',self token;
-			get.	
-			
-	^ ((STON fromString: json) at: 'data')
+	| array |
+	array := self getAll.
+
+	^ array
 		collect: [ :each | Program new rawData: each ]
-		
 ]
