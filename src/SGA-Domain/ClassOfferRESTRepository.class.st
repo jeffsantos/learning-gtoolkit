@@ -8,7 +8,7 @@ Class {
 ClassOfferRESTRepository >> classOfferId: id [
 	| dict |
 	dict := self getById: id.
-	^ ClassOffer new rawData: dict
+	^ ClassOffer newFromData: dict
 ]
 
 { #category : #accessing }
@@ -17,7 +17,7 @@ ClassOfferRESTRepository >> classOffers [
 	array := self getAll.
 			
 	^ array
-		collect: [ :each | ClassOffer new rawData: each ]
+		collect: [ :each | ClassOffer newFromData: each ]
 ]
 
 { #category : #abstract }

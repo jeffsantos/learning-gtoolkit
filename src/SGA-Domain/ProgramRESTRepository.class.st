@@ -13,7 +13,7 @@ ProgramRESTRepository >> initializeEndPoint [
 ProgramRESTRepository >> programId: id [
 	| dict |
 	dict := self getById: id.
-	^ Program new rawData: dict
+	^ Program newFromData: dict
 ]
 
 { #category : #accessing }
@@ -22,5 +22,5 @@ ProgramRESTRepository >> programs [
 	array := self getAll.
 
 	^ array
-		collect: [ :each | Program new rawData: each ]
+		collect: [ :each | Program newFromData: each ]
 ]
