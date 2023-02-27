@@ -1,23 +1,23 @@
 Class {
-	#name : #ProgramService,
-	#superclass : #AuthService,
+	#name : #ProgramRESTRepository,
+	#superclass : #AbstractRESTRepository,
 	#category : #'SGA-API'
 }
 
 { #category : #abstract }
-ProgramService >> initializeEndPoint [
+ProgramRESTRepository >> initializeEndPoint [
 	self serviceEndPoint: '/api/v1/Programas'
 ]
 
 { #category : #accessing }
-ProgramService >> programId: id [
+ProgramRESTRepository >> programId: id [
 	| dict |
 	dict := self getById: id.
 	^ Program new rawData: dict
 ]
 
 { #category : #accessing }
-ProgramService >> programs [
+ProgramRESTRepository >> programs [
 	| array |
 	array := self getAll.
 

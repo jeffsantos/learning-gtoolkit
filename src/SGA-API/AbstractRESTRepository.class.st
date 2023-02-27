@@ -1,5 +1,5 @@
 Class {
-	#name : #AuthService,
+	#name : #AbstractRESTRepository,
 	#superclass : #Object,
 	#instVars : [
 		'urlBase',
@@ -12,7 +12,7 @@ Class {
 }
 
 { #category : #'instace creation' }
-AuthService class >> createService [
+AbstractRESTRepository class >> createService [
 	^ self new
 			urlBase: 'https://www-d.fgv.br/EBAPE/GestaoAcad';
 			authEndPoint: '/api/v1/Auth';
@@ -22,22 +22,22 @@ AuthService class >> createService [
 ]
 
 { #category : #accessing }
-AuthService >> authEndPoint [
+AbstractRESTRepository >> authEndPoint [
 	^ authEndPoint
 ]
 
 { #category : #accessing }
-AuthService >> authEndPoint: anObject [
+AbstractRESTRepository >> authEndPoint: anObject [
 	authEndPoint := anObject
 ]
 
 { #category : #accessing }
-AuthService >> authRawData: dictionary [
+AbstractRESTRepository >> authRawData: dictionary [
 	authRawData := dictionary
 ]
 
 { #category : #authentication }
-AuthService >> authenticate [
+AbstractRESTRepository >> authenticate [
 	| json dictionary |
 	json := ZnClient new
 			url: self urlBase, self authEndPoint;
@@ -51,7 +51,7 @@ AuthService >> authenticate [
 ]
 
 { #category : #services }
-AuthService >> getAll [
+AbstractRESTRepository >> getAll [
 	| json |
 	json := ZnClient new
 			url: self urlBase , self serviceEndPoint;
@@ -61,7 +61,7 @@ AuthService >> getAll [
 ]
 
 { #category : #accessing }
-AuthService >> getById: id [
+AbstractRESTRepository >> getById: id [
 	| json |
 	json := ZnClient new
 			url: self urlBase , self serviceEndPoint , '/' , id printString;
@@ -71,46 +71,46 @@ AuthService >> getById: id [
 ]
 
 { #category : #abstract }
-AuthService >> initializeEndPoint [
+AbstractRESTRepository >> initializeEndPoint [
 	self subclassResponsibility
 ]
 
 { #category : #accessing }
-AuthService >> rawData [
+AbstractRESTRepository >> rawData [
 	^ rawData
 ]
 
 { #category : #accessing }
-AuthService >> rawData: anObject [
+AbstractRESTRepository >> rawData: anObject [
 	rawData := anObject
 ]
 
 { #category : #accessing }
-AuthService >> serviceEndPoint [
+AbstractRESTRepository >> serviceEndPoint [
 	^ serviceEndPoint
 ]
 
 { #category : #accessing }
-AuthService >> serviceEndPoint: anObject [
+AbstractRESTRepository >> serviceEndPoint: anObject [
 	serviceEndPoint := anObject
 ]
 
 { #category : #accessing }
-AuthService >> token [
+AbstractRESTRepository >> token [
 	^ (authRawData at: 'data') at: 'token'
 ]
 
 { #category : #accessing }
-AuthService >> tokenValidity [
+AbstractRESTRepository >> tokenValidity [
 	^ (authRawData at: 'data') at: 'validoAte'
 ]
 
 { #category : #accessing }
-AuthService >> urlBase [
+AbstractRESTRepository >> urlBase [
 	^ urlBase
 ]
 
 { #category : #accessing }
-AuthService >> urlBase: anObject [
+AbstractRESTRepository >> urlBase: anObject [
 	urlBase := anObject
 ]

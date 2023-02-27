@@ -7,6 +7,11 @@ Class {
 	#category : #'SGA-API'
 }
 
+{ #category : #'instance creation' }
+SGAObject class >> newFromData: rawData [
+	self subclassResponsibility
+]
+
 { #category : #accessing }
 SGAObject >> gtPropertiesFor: aView [
 	<gtView>
@@ -19,5 +24,5 @@ SGAObject >> gtPropertiesFor: aView [
 
 { #category : #accessing }
 SGAObject >> rawData: dict [
-	rawData := dict 
+	rawData := dict.
 ]

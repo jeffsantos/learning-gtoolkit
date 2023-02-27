@@ -1,18 +1,18 @@
 Class {
-	#name : #ClassOfferService,
-	#superclass : #AuthService,
+	#name : #ClassOfferRESTRepository,
+	#superclass : #AbstractRESTRepository,
 	#category : #'SGA-API'
 }
 
 { #category : #accessing }
-ClassOfferService >> classOfferId: id [
+ClassOfferRESTRepository >> classOfferId: id [
 	| dict |
 	dict := self getById: id.
 	^ ClassOffer new rawData: dict
 ]
 
 { #category : #accessing }
-ClassOfferService >> classOffers [
+ClassOfferRESTRepository >> classOffers [
 	| array |
 	array := self getAll.
 			
@@ -21,6 +21,6 @@ ClassOfferService >> classOffers [
 ]
 
 { #category : #abstract }
-ClassOfferService >> initializeEndPoint [
+ClassOfferRESTRepository >> initializeEndPoint [
 	self serviceEndPoint: '/api/v1/Classes'
 ]
