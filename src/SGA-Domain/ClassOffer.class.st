@@ -9,7 +9,7 @@ Class {
 
 { #category : #'instance creation' }
 ClassOffer class >> newFromData: rawData [
-	^ Discipline new
+	^ ClassOffer new
 		rawData: rawData;
 		id: (rawData at: 'Id')
 ]

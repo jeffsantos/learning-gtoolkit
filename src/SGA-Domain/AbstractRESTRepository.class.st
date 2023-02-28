@@ -12,7 +12,7 @@ Class {
 }
 
 { #category : #'instace creation' }
-AbstractRESTRepository class >> createService [
+AbstractRESTRepository class >> createRESTRepository [
 	^ self new
 			urlBase: 'https://www-d.fgv.br/EBAPE/GestaoAcad';
 			authEndPoint: '/api/v1/Auth';
