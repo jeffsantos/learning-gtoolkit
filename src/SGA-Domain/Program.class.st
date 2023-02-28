@@ -19,7 +19,7 @@ Program class >> newFromData: rawData [
 { #category : #accessing }
 Program >> cohorts [
 	^ (rawData at: 'Turmas') 
-		collect: [ :each | Cohort new rawData: each ]
+		collect: [ :each | Cohort newFromData: each ]
 ]
 
 { #category : #accessing }

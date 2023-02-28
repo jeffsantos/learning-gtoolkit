@@ -11,14 +11,23 @@ Class {
 	#category : #'SGA-Domain'
 }
 
-{ #category : #'instace creation' }
+{ #category : #'instance creation' }
 AbstractRESTRepository class >> createRESTRepository [
 	^ self new
-			urlBase: 'https://www-d.fgv.br/EBAPE/GestaoAcad';
+			urlBase: self defaultURL;
 			authEndPoint: '/api/v1/Auth';
 			initializeEndPoint;
 			authenticate.
 
+]
+
+{ #category : #'default values' }
+AbstractRESTRepository class >> defaultURL [
+	| localUrl desenvUrl |
+	localUrl := 'http://localhost:1654/ebape/gestaoacad'.
+	desenvUrl := 'https://www-d.fgv.br/EBAPE/GestaoAcad'.
+
+	^ localUrl
 ]
 
 { #category : #accessing }

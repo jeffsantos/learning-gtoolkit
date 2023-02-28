@@ -2,7 +2,8 @@ Class {
 	#name : #ClassOffer,
 	#superclass : #SGAObject,
 	#instVars : [
-		'id'
+		'id',
+		'language'
 	],
 	#category : #'SGA-Domain'
 }
