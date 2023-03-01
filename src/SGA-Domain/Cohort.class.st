@@ -22,8 +22,8 @@ Cohort >> id [
 ]
 
 { #category : #accessing }
-Cohort >> id: anObject [
-	id := anObject
+Cohort >> id: aString [
+	id := aString
 ]
 
 { #category : #accessing }
@@ -32,6 +32,6 @@ Cohort >> name [
 ]
 
 { #category : #accessing }
-Cohort >> name: anObject [
-	name := anObject
+Cohort >> name: aString [
+	name := aString
 ]

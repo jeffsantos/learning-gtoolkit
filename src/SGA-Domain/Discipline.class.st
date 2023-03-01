@@ -26,8 +26,8 @@ Discipline >> code [
 ]
 
 { #category : #accessing }
-Discipline >> code: anObject [
-	code := anObject
+Discipline >> code: aString [
+	code := aString
 ]
 
 { #category : #accessing }
@@ -36,8 +36,8 @@ Discipline >> id [
 ]
 
 { #category : #accessing }
-Discipline >> id: anObject [
-	id := anObject
+Discipline >> id: aString [
+	id := aString
 ]
 
 { #category : #accessing }
@@ -46,8 +46,8 @@ Discipline >> name [
 ]
 
 { #category : #accessing }
-Discipline >> name: anObject [
-	name := anObject
+Discipline >> name: aString [
+	name := aString
 ]
 
 { #category : #accessing }
@@ -56,6 +56,6 @@ Discipline >> workload [
 ]
 
 { #category : #accessing }
-Discipline >> workload: anObject [
-	workload := anObject
+Discipline >> workload: anInteger [
+	workload := anInteger
 ]
