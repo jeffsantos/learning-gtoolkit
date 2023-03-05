@@ -1,8 +1,8 @@
 Class {
-	#name : #SGAClassOfferComponent,
+	#name : #SGAInvitationComponent,
 	#superclass : #SBSComponent,
 	#instVars : [
-		'classOffer'
+		'invite'
 	],
 	#category : #'SGA-WebComponents'
 }
