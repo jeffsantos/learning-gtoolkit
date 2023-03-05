@@ -3,7 +3,8 @@ Class {
 	#superclass : #SGAObject,
 	#instVars : [
 		'id',
-		'name'
+		'name',
+		'email'
 	],
 	#category : #'SGA-Domain'
 }
@@ -13,7 +14,18 @@ Professor class >> newFromData: rawData [
 	^ self new
 		rawData: rawData;
 		id: (rawData at: 'Id');
-		name: (rawData at: 'Nome')
+		name: (rawData at: 'Nome');
+		email: (rawData at: 'Email')
+]
+
+{ #category : #accessing }
+Professor >> email [
+	^ email
+]
+
+{ #category : #accessing }
+Professor >> email: aString [
+	email := aString
 ]
 
 { #category : #accessing }
@@ -22,8 +34,8 @@ Professor >> id [
 ]
 
 { #category : #accessing }
-Professor >> id: anObject [
-	id := anObject
+Professor >> id: aString [
+	id := aString
 ]
 
 { #category : #accessing }

@@ -3,21 +3,78 @@ Class {
 	#superclass : #SGAObject,
 	#instVars : [
 		'id',
-		'language'
+		'language',
+		'startDate',
+		'endDate',
+		'trimester',
+		'discipline',
+		'professor',
+		'cohort',
+		'calendar',
+		'standardTime'
 	],
 	#category : #'SGA-Domain'
 }
 
 { #category : #'instance creation' }
 ClassOffer class >> newFromData: rawData [
-	^ ClassOffer new
-		rawData: rawData;
-		id: (rawData at: 'Id')
+	| class |
+	class := ClassOffer new
+				rawData: rawData;
+				id: (rawData at: 'SGAID');
+				startDate: (rawData at: 'Inicio');
+				endDate: (rawData at: 'Fim');
+				language: (rawData at: 'Idioma');
+				trimester: (rawData at: 'Trimestre').
+				
+	class discipline: (Discipline newFromData: (rawData at: 'Disciplina')).
+							
+	class professor: (Professor newFromData: (rawData at: 'Professor')).
+	
+	class cohort: (Cohort newFromData: (rawData at: 'Turma')).
+		
+	^ class
+		
+]
+
+{ #category : #accessing }
+ClassOffer >> calendar [
+	^ calendar
+]
+
+{ #category : #accessing }
+ClassOffer >> calendar: aCalendar [
+	calendar := aCalendar
+]
+
+{ #category : #accessing }
+ClassOffer >> cohort [
+	^ cohort
+]
+
+{ #category : #accessing }
+ClassOffer >> cohort: aCohort [
+	cohort := aCohort
 ]
 
 { #category : #accessing }
 ClassOffer >> discipline [
-	^ Discipline new rawData: (rawData at: 'Disciplina')
+	^ discipline
+]
+
+{ #category : #accessing }
+ClassOffer >> discipline: aDiscipline [
+	discipline := aDiscipline
+]
+
+{ #category : #accessing }
+ClassOffer >> endDate [
+	^ endDate
+]
+
+{ #category : #accessing }
+ClassOffer >> endDate: aDate [
+	endDate := aDate
 ]
 
 { #category : #accessing }
@@ -26,6 +83,56 @@ ClassOffer >> id [
 ]
 
 { #category : #accessing }
-ClassOffer >> id: anObject [
-	id := anObject
+ClassOffer >> id: aString [
+	id := aString
+]
+
+{ #category : #accessing }
+ClassOffer >> language [
+	^ language
+]
+
+{ #category : #accessing }
+ClassOffer >> language: aString [
+	language := aString
+]
+
+{ #category : #accessing }
+ClassOffer >> professor [
+	^ professor
+]
+
+{ #category : #accessing }
+ClassOffer >> professor: aProfessor [
+	professor := aProfessor
+]
+
+{ #category : #accessing }
+ClassOffer >> standardTime [
+	^ standardTime
+]
+
+{ #category : #accessing }
+ClassOffer >> standardTime: aStandardTime [
+	standardTime := aStandardTime
+]
+
+{ #category : #accessing }
+ClassOffer >> startDate [
+	^ startDate
+]
+
+{ #category : #accessing }
+ClassOffer >> startDate: aDate [
+	startDate := aDate
+]
+
+{ #category : #accessing }
+ClassOffer >> trimester [
+	^ trimester
+]
+
+{ #category : #accessing }
+ClassOffer >> trimester: aString [
+	trimester := aString
 ]

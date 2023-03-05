@@ -3,28 +3,35 @@ Class {
 	#superclass : #SGAObject,
 	#instVars : [
 		'id',
-		'name'
+		'name',
+		'type',
+		'cohorts'
 	],
 	#category : #'SGA-Domain'
 }
 
 { #category : #'instance creation' }
 Program class >> newFromData: rawData [
-	^ self new
-		rawData: rawData;
-		id: (rawData at: 'Id');
-		name: (rawData at: 'Nome')
+	| program |
+	program := self new
+					rawData: rawData;
+					id: (rawData at: 'Id');
+					name: (rawData at: 'Nome');
+					type: (rawData at: 'Curso').
+					
+	program cohorts addAll: ((rawData at: 'Turmas') 
+					collect: [ :each | Cohort newFromData: each ]).
+					
+	program invitations addAll: ((rawData at: 'Convites') 
+					collect: [ :each | Invitation newFromData: each ]).
+						
+	^ program
+	
 ]
 
 { #category : #accessing }
 Program >> cohorts [
-	^ (rawData at: 'Turmas') 
-		collect: [ :each | Cohort newFromData: each ]
-]
-
-{ #category : #accessing }
-Program >> coordinator [
-	^ Professor new rawData: (rawData at: 'Coordenador')
+	^ cohorts ifNil: [ cohorts := OrderedCollection new ]
 ]
 
 { #category : #accessing }
@@ -33,8 +40,12 @@ Program >> id [
 ]
 
 { #category : #accessing }
-Program >> id: anObject [
-	id := anObject
+Program >> id: aString [
+	id := aString
+]
+
+{ #category : #accessing }
+Program >> invitations [
 ]
 
 { #category : #accessing }
@@ -43,6 +54,16 @@ Program >> name [
 ]
 
 { #category : #accessing }
-Program >> name: anObject [
-	name := anObject
+Program >> name: aString [
+	name := aString
+]
+
+{ #category : #accessing }
+Program >> type [
+	^ type
+]
+
+{ #category : #accessing }
+Program >> type: aString [
+	type := aString
 ]
