@@ -19,7 +19,7 @@ Class {
 { #category : #'instance creation' }
 ClassOffer class >> newFromData: rawData [
 	| class |
-	class := ClassOffer new
+	class := self new
 				rawData: rawData;
 				id: (rawData at: 'SGAID');
 				startDate: (rawData at: 'Inicio');

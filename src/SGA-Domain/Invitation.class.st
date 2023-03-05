@@ -13,7 +13,7 @@ Class {
 { #category : #'instance creation' }
 Invitation class >> newFromData: rawData [
 	| invitation |
-	invitation := Invitation new
+	invitation := self new
 				rawData: rawData;
 				id: (rawData at: 'SGAID');
 				dueDate: (rawData at: 'DataLimite').
