@@ -21,6 +21,9 @@ Program class >> newFromData: rawData [
 					
 	program cohorts addAll: ((rawData at: 'Turmas') 
 					collect: [ :each | Cohort newFromData: each ]).
+					
+	program invitations addAll: ((rawData at: 'Convites') 
+					collect: [ :each | Invitation newFromData: each ]).
 						
 	^ program
 	
@@ -39,6 +42,10 @@ Program >> id [
 { #category : #accessing }
 Program >> id: aString [
 	id := aString
+]
+
+{ #category : #accessing }
+Program >> invitations [
 ]
 
 { #category : #accessing }

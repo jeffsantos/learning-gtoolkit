@@ -9,6 +9,7 @@ Class {
 		'trimester',
 		'discipline',
 		'professor',
+		'cohort',
 		'calendar',
 		'standardTime'
 	],
@@ -29,6 +30,8 @@ ClassOffer class >> newFromData: rawData [
 	class discipline: (Discipline newFromData: (rawData at: 'Disciplina')).
 							
 	class professor: (Professor newFromData: (rawData at: 'Professor')).
+	
+	class cohort: (Cohort newFromData: (rawData at: 'Turma')).
 		
 	^ class
 		
@@ -42,6 +45,16 @@ ClassOffer >> calendar [
 { #category : #accessing }
 ClassOffer >> calendar: aCalendar [
 	calendar := aCalendar
+]
+
+{ #category : #accessing }
+ClassOffer >> cohort [
+	^ cohort
+]
+
+{ #category : #accessing }
+ClassOffer >> cohort: aCohort [
+	cohort := aCohort
 ]
 
 { #category : #accessing }
