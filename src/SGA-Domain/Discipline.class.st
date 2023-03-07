@@ -14,10 +14,10 @@ Class {
 Discipline class >> newFromData: rawData [
 	^ self new
 		rawData: rawData;
-		id: (rawData at: 'Id');
-		code: (rawData at: 'Codigo');		
-		name: (rawData at: 'Nome');
-		workload: (rawData at: 'CargaHoraria').
+		id: (rawData at: 'id');
+		code: (rawData at: 'codigo');		
+		name: (rawData at: 'nome');
+		workload: (rawData at: 'cargaHoraria').
 ]
 
 { #category : #accessing }

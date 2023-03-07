@@ -12,8 +12,8 @@ Class {
 Cohort class >> newFromData: rawData [
 	^ self new
 		rawData: rawData;
-		id: (rawData at: 'Id');
-		name: (rawData at: 'Nome')
+		id: (rawData at: 'id');
+		name: (rawData at: 'nome')
 ]
 
 { #category : #accessing }

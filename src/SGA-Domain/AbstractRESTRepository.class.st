@@ -27,7 +27,7 @@ AbstractRESTRepository class >> defaultURL [
 	localUrl := 'http://localhost:1654/ebape/gestaoacad'.
 	desenvUrl := 'https://www-d.fgv.br/EBAPE/GestaoAcad'.
 
-	^ localUrl
+	^ desenvUrl
 ]
 
 { #category : #accessing }

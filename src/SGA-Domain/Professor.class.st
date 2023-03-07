@@ -13,9 +13,9 @@ Class {
 Professor class >> newFromData: rawData [
 	^ self new
 		rawData: rawData;
-		id: (rawData at: 'Id');
-		name: (rawData at: 'Nome');
-		email: (rawData at: 'Email')
+		id: (rawData at: 'id');
+		name: (rawData at: 'nome');
+		email: (rawData at: 'email')
 ]
 
 { #category : #accessing }

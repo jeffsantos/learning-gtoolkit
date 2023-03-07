@@ -7,9 +7,9 @@ Class {
 { #category : #tests }
 ProgramTest >> testCreateFromData [
 	| dict map |
-	dict := {'Id' -> '1' . 
-			 'Nome' -> 'Mestrado Profissional em Administração Pública' .
-			 'Curso' -> 'MESTRADO' 
+	dict := {'id' -> '1' . 
+			 'nome' -> 'Mestrado Profissional em Administração Pública' .
+			 'curso' -> 'MESTRADO' 
 			 } asDictionary.
 	
 	map := Program newFromData: dict.

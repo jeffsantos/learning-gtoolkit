@@ -15,13 +15,13 @@ Invitation class >> newFromData: rawData [
 	| invitation |
 	invitation := self new
 				rawData: rawData;
-				id: (rawData at: 'SGAID');
-				dueDate: (rawData at: 'DataLimite').
+				id: (rawData at: 'sgaId');
+				dueDate: (rawData at: 'dataLimite').
 				
-	invitation classOffers addAll: ((rawData at: 'Classes') 
+	invitation classOffers addAll: ((rawData at: 'classes') 
 				collect: [ :each | ClassOffer newFromData: each ]).
 							
-	invitation professor: (Professor newFromData: (rawData at: 'Professor')).
+	invitation professor: (Professor newFromData: (rawData at: 'professor')).
 		
 	^ invitation
 ]
