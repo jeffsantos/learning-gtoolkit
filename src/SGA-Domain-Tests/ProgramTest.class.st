@@ -1,8 +1,16 @@
 Class {
 	#name : #ProgramTest,
 	#superclass : #TestCase,
+	#instVars : [
+		'mockAPI'
+	],
 	#category : #'SGA-Domain-Tests'
 }
+
+{ #category : #running }
+ProgramTest >> setUp [
+	mockAPI := MockAPI createMockData
+]
 
 { #category : #tests }
 ProgramTest >> testCreateFromData [
@@ -23,4 +31,14 @@ ProgramTest >> testCreateFromData [
 { #category : #tests }
 ProgramTest >> testCreateFromDataWithoutCohorts [
 	self assert: 1 equals: 0.
+]
+
+{ #category : #tests }
+ProgramTest >> testCreateFromResource [
+	| map |
+	map := Program newFromData: (mockAPI programs at:'1').
+	
+	self assert: map id equals: '1'.
+	self assert: map name equals: 'Mestrado Profissional em Administração Pública'.
+	self assert: map type equals: 'MESTRADO'.
 ]
