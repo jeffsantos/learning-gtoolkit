@@ -13,7 +13,7 @@ Class {
 { #category : #'intance creation' }
 MockAPI class >> createMockData [
 
-	| dictProgram1 dictProgram2 dictProgram3 dictCohort1 dictCohort2 dictCohort3 cohorts1 cohorts3 dictProfessor1 dictProfessor2  dictDiscipline1 dictDiscipline2 dictDiscipline3 dictStandardSchedule1 dictStandardSchedule2 dictSyncScheduleWen1 dictSyncScheduleWen2 dictSyncScheduleWen3 dictSyncScheduleMon1 dictSyncScheduleMon2 dictCalendar1 dictAsyncSchedule1 dictSyncSchedule1 dictSyncSchedule2 dictAsyncSchedule2 dictSyncSchedule3 dictSyncSchedule4 dictCalendar2 dictClassOffer1 dictClassOffer2 programs professors disciplines classOffers |
+	| dictProgram1 dictProgram2 dictProgram3 dictCohort1 dictCohort2 dictCohort3 cohorts1 cohorts3 dictProfessor1 dictProfessor2  dictDiscipline1 dictDiscipline2 dictDiscipline3 dictStandardSchedule1 dictStandardSchedule2 dictSyncScheduleWen1 dictSyncScheduleWen2 dictSyncScheduleWen3 dictSyncScheduleMon1 dictSyncScheduleMon2 dictCalendar1 dictAsyncSchedule1 dictSyncSchedule1 dictSyncSchedule2 dictAsyncSchedule2 dictSyncSchedule3 dictSyncSchedule4 dictCalendar2 dictClassOffer1 dictClassOffer2 programs professors disciplines classOffers invitations1 cohorts2 invitations2 invitations3 |
 	dictProgram1 := {'id' -> '1'.
 					'nome' -> 'Mestrado Profissional Executivo em Gestão Empresarial'.
 					'curso' -> 'MESTRADO'} asDictionary.
@@ -38,14 +38,25 @@ MockAPI class >> createMockData [
 	cohorts1 := Dictionary new.
 	cohorts1 at: '1' put: dictCohort1.
 	cohorts1 at: '2' put: dictCohort2.
-	
 	dictProgram1 at: 'turmas' put: cohorts1.
 	
+	invitations1 := Dictionary new.
+	dictProgram1 at: 'convites' put: invitations1.
+	
+	
+	cohorts2 := Dictionary new.
+	dictProgram2 at: 'turmas' put: cohorts2.
+	
+	invitations2 := Dictionary new.
+	dictProgram2 at: 'convites' put: invitations2.
 	
 	cohorts3 := Dictionary new.
 	cohorts3 at: '3' put: dictCohort3.
-	
 	dictProgram3 at: 'turmas' put: cohorts3.
+	
+	invitations3 := Dictionary new.
+	dictProgram3 at: 'convites' put: invitations3.
+
 	
 	programs := Dictionary new.
 	programs at: '1' put: dictProgram1.

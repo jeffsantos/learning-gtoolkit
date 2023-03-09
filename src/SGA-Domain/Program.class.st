@@ -5,7 +5,8 @@ Class {
 		'id',
 		'name',
 		'type',
-		'cohorts'
+		'cohorts',
+		'invitations'
 	],
 	#category : #'SGA-Domain'
 }
@@ -51,6 +52,7 @@ Program >> id: aString [
 
 { #category : #accessing }
 Program >> invitations [
+	^ invitations ifNil: [ invitations := OrderedCollection new ]
 ]
 
 { #category : #accessing }
