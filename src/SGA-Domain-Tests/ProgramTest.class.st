@@ -12,21 +12,13 @@ ProgramTest >> setUp [
 	mockAPI := MockAPI createMockData
 ]
 
-{ #category : #accessing }
+{ #category : #running }
 ProgramTest >> tearDown [
 	mockAPI := nil.
 ]
 
 { #category : #tests }
-ProgramTest >> testCreateFromDataWithoutCohorts [
-	| prog |
-	prog := Program newFromData: (mockAPI programs at:'2').
-	
-	self assert: prog cohorts size equals: 0.
-]
-
-{ #category : #tests }
-ProgramTest >> testCreateFromResource [
+ProgramTest >> testProgramWithCohortsWithoutInvitations [
 	| prog |
 	prog := Program newFromData: (mockAPI programs at:'1').
 	
@@ -36,4 +28,16 @@ ProgramTest >> testCreateFromResource [
 	
 	self assert: prog cohorts size equals: 2.
 	
+	self assert: prog invitations size equals: 0.
+	
+]
+
+{ #category : #tests }
+ProgramTest >> testProgramWithoutCohortsWithoutInvitations [
+	| prog |
+	prog := Program newFromData: (mockAPI programs at:'2').
+	
+	self assert: prog cohorts size equals: 0.
+	
+	self assert: prog invitations size equals: 0.
 ]
