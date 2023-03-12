@@ -5,8 +5,7 @@ Class {
 		'urlBase',
 		'authEndPoint',
 		'serviceEndPoint',
-		'authRawData',
-		'rawData'
+		'authRawData'
 	],
 	#category : #'SGA-Domain'
 }
@@ -82,16 +81,6 @@ AbstractRESTRepository >> getById: id [
 { #category : #abstract }
 AbstractRESTRepository >> initializeEndPoint [
 	self subclassResponsibility
-]
-
-{ #category : #accessing }
-AbstractRESTRepository >> rawData [
-	^ rawData
-]
-
-{ #category : #accessing }
-AbstractRESTRepository >> rawData: anObject [
-	rawData := anObject
 ]
 
 { #category : #accessing }

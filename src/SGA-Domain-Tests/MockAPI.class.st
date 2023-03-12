@@ -11,7 +11,7 @@ Class {
 }
 
 { #category : #'intance creation' }
-MockAPI class >> createMockData [
+MockAPI class >> createWithMockData [
 
 	| dictProgram1 dictProgram2 dictProgram3 dictCohort1 dictCohort2 dictCohort3 cohorts1 cohorts3 dictProfessor1 dictProfessor2  dictDiscipline1 dictDiscipline2 dictDiscipline3 dictStandardSchedule1 dictStandardSchedule2 dictSyncScheduleWen1 dictSyncScheduleWen2 dictSyncScheduleWen3 dictSyncScheduleMon1 dictSyncScheduleMon2 dictCalendar1 dictAsyncSchedule1 dictSyncSchedule1 dictSyncSchedule2 dictAsyncSchedule2 dictSyncSchedule3 dictSyncSchedule4 dictCalendar2 dictClassOffer1 dictClassOffer2 programs professors disciplines classOffers invitations1 cohorts2 invitations2 invitations3 |
 	dictProgram1 := {'id' -> '1'.
@@ -205,12 +205,13 @@ MockAPI class >> createMockData [
 ]
 
 { #category : #accessing }
-MockAPI >> classOfferId [
+MockAPI >> classOfferId: aString [
+	^ classOffers at: aString
 ]
 
 { #category : #accessing }
 MockAPI >> classOffers [
-	^classOffers
+	^ classOffers
 ]
 
 { #category : #accessing }
@@ -219,12 +220,13 @@ MockAPI >> classOffers: aClassOfferDict [
 ]
 
 { #category : #accessing }
-MockAPI >> disciplineId [
+MockAPI >> disciplineId: anInteger [
+	^ disciplines at: anInteger
 ]
 
 { #category : #accessing }
 MockAPI >> disciplines [
-	^disciplines
+	^ disciplines
 ]
 
 { #category : #accessing }
@@ -233,12 +235,13 @@ MockAPI >> disciplines: aDisciplineDict [
 ]
 
 { #category : #accessing }
-MockAPI >> professorId [
+MockAPI >> professorId: anInteger [
+	^ professors at: anInteger
 ]
 
 { #category : #accessing }
 MockAPI >> professors [
-	^professors
+	^ professors
 ]
 
 { #category : #accessing }
@@ -247,7 +250,8 @@ MockAPI >> professors: aProfessorDict [
 ]
 
 { #category : #accessing }
-MockAPI >> programId [
+MockAPI >> programId: anInteger [
+	^ programs at: anInteger
 ]
 
 { #category : #accessing }

@@ -17,11 +17,11 @@ SGATestResource >> mockAPI: aMockAPI [
 	mockAPI := aMockAPI
 ]
 
-{ #category : #accessing }
+{ #category : #running }
 SGATestResource >> setUp [
-	mockAPI := MockAPI createMockData
+	mockAPI := MockAPI createWithMockData
 ]
 
-{ #category : #accessing }
+{ #category : #running }
 SGATestResource >> tearDown [
 ]
