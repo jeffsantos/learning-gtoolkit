@@ -33,7 +33,7 @@ SGAApplicationRootComponent >> children [
 { #category : #initialization }
 SGAApplicationRootComponent >> initialize [ 
 	super initialize. 
-	main := SGAInvitationListComponent new
+	main := SGAClassOfferListComponent new
 ]
 
 { #category : #accessing }
