@@ -24,5 +24,5 @@ DisciplineRESTRepository >> disciplines [
 
 { #category : #abstract }
 DisciplineRESTRepository >> initializeEndPoint [
-	self serviceEndPoint: '/api/v1/Disciplinas'
+	self serviceEndPoint: 'Disciplinas'
 ]

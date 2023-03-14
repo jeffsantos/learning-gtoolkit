@@ -22,5 +22,5 @@ ClassOfferRESTRepository >> classOffers [
 
 { #category : #abstract }
 ClassOfferRESTRepository >> initializeEndPoint [
-	self serviceEndPoint: '/api/v1/Classes'
+	self serviceEndPoint: 'Classes'
 ]

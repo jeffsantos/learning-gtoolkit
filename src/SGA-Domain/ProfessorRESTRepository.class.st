@@ -6,7 +6,7 @@ Class {
 
 { #category : #accessing }
 ProfessorRESTRepository >> initializeEndPoint [
-	self serviceEndPoint: '/api/v1/Professores'
+	self serviceEndPoint: 'Professores'
 ]
 
 { #category : #accessing }

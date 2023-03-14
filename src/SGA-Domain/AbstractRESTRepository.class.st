@@ -14,7 +14,7 @@ Class {
 AbstractRESTRepository class >> createRESTRepository [
 	^ self new
 			urlBase: self defaultURL;
-			authEndPoint: '/api/v1/Auth';
+			authEndPoint: 'Auth';
 			initializeEndPoint;
 			authenticate.
 
@@ -22,11 +22,22 @@ AbstractRESTRepository class >> createRESTRepository [
 
 { #category : #'default values' }
 AbstractRESTRepository class >> defaultURL [
-	| localUrl desenvUrl |
-	localUrl := 'http://localhost:1654/ebape/gestaoacad'.
-	desenvUrl := 'https://www-d.fgv.br/EBAPE/GestaoAcad'.
+	| stream env url prefix version envKey |
+	
+	stream := 'sga-settings.json' asFileReference readStream.
+	env := STON fromStream: stream.
+	
+	envKey := env at: 'current'.
+	
+	url := (env at: envKey) at: 'url'.
+	prefix := (env at: envKey) at: 'prefix'.
+	version := (env at: envKey) at: 'version'.
+	
+	(prefix ~= '') ifTrue: [ url := url,'/',prefix ].
+	
+	(version ~= '') ifTrue: [ url := url,'/',version ].
 
-	^ desenvUrl
+	^ url,'/'
 ]
 
 { #category : #accessing }

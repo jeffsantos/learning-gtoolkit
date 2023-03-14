@@ -20,9 +20,9 @@ ProgramTest >> tearDown [
 { #category : #tests }
 ProgramTest >> testProgramWithCohortsWithoutInvitations [
 	| prog |
-	prog := Program newFromData: (mockAPI programId: '1').
+	prog := Program newFromData: (mockAPI programId: 1).
 	
-	self assert: prog id equals: '1'.
+	self assert: prog id equals: 1.
 	self assert: prog name equals: 'Mestrado Profissional Executivo em Gestão Empresarial'.
 	self assert: prog type equals: 'MESTRADO'.
 	
@@ -35,7 +35,7 @@ ProgramTest >> testProgramWithCohortsWithoutInvitations [
 { #category : #tests }
 ProgramTest >> testProgramWithoutCohortsWithoutInvitations [
 	| prog |
-	prog := Program newFromData: (mockAPI programId: '2').
+	prog := Program newFromData: (mockAPI programId: 2).
 	
 	self assert: prog cohorts size equals: 0.
 	

@@ -6,7 +6,7 @@ Class {
 
 { #category : #abstract }
 ProgramRESTRepository >> initializeEndPoint [
-	self serviceEndPoint: '/api/v1/Programas'
+	self serviceEndPoint: 'Programas'
 ]
 
 { #category : #accessing }
