@@ -32,7 +32,7 @@ Class {
 { #category : #'intance creation' }
 MockAPI class >> createWithMockData [
 
-	| dictProgram1 dictProgram2 dictProgram3 dictCohort1 dictCohort2 dictCohort3 cohorts1 cohorts3 dictProfessor1 dictProfessor2  dictDiscipline1 dictDiscipline2 dictDiscipline3 dictStandardSchedule1 dictStandardSchedule2 dictSyncScheduleWen1 dictSyncScheduleWen2 dictSyncScheduleWen3 dictSyncScheduleMon1 dictSyncScheduleMon2 dictCalendar1 dictAsyncSchedule1 dictSyncSchedule1 dictSyncSchedule2 dictAsyncSchedule2 dictSyncSchedule3 dictSyncSchedule4 dictCalendar2 dictClassOffer1 dictClassOffer2 programs professors disciplines classOffers invitations1 cohorts2 invitations2 invitations3 |
+	| dictProgram1 dictProgram2 dictProgram3 dictCohort1 dictCohort2 dictCohort3 dictProfessor1 dictProfessor2  dictDiscipline1 dictDiscipline2 dictDiscipline3 dictStandardSchedule1 dictStandardSchedule2 dictSyncScheduleWen1 dictSyncScheduleWen2 dictSyncScheduleWen3 dictSyncScheduleMon1 dictSyncScheduleMon2 dictCalendar1 dictAsyncSchedule1 dictSyncSchedule1 dictSyncSchedule2 dictAsyncSchedule2 dictSyncSchedule3 dictSyncSchedule4 dictCalendar2 dictClassOffer1 dictClassOffer2 programs professors disciplines classOffers |
 	dictProgram1 := {'id' -> 1.
 					'nome' -> 'Mestrado Profissional Executivo em Gestão Empresarial'.
 					'curso' -> 'MESTRADO'} asDictionary.
@@ -54,33 +54,19 @@ MockAPI class >> createWithMockData [
 	dictCohort3 := {'id' -> 3.
 					'nome' -> 'Graduação Botafogo 2023'.} asDictionary.
 					
-	cohorts1 := Dictionary new.
-	cohorts1 at: 1 put: dictCohort1.
-	cohorts1 at: 2 put: dictCohort2.
-	dictProgram1 at: 'turmas' put: cohorts1.
-	
-	invitations1 := Dictionary new.
-	dictProgram1 at: 'convites' put: invitations1.
+	dictProgram1 at: 'turmas' put: { dictCohort1.
+				  				   dictCohort2 }.
+	dictProgram1 at: 'convites' put: {}.
 	
 	
-	cohorts2 := Dictionary new.
-	dictProgram2 at: 'turmas' put: cohorts2.
+	dictProgram2 at: 'turmas' put: {}.
+	dictProgram2 at: 'convites' put: {}.
 	
-	invitations2 := Dictionary new.
-	dictProgram2 at: 'convites' put: invitations2.
-	
-	cohorts3 := Dictionary new.
-	cohorts3 at: '3' put: dictCohort3.
-	dictProgram3 at: 'turmas' put: cohorts3.
-	
-	invitations3 := Dictionary new.
-	dictProgram3 at: 'convites' put: invitations3.
+	dictProgram3 at: 'turmas' put: { dictCohort3 }.
+	dictProgram3 at: 'convites' put: {}.
 
 	
-	programs := Dictionary new.
-	programs at: 1 put: dictProgram1.
-	programs at: 2 put: dictProgram2.
-	programs at: 3 put: dictProgram3.
+	programs := { dictProgram1. dictProgram2. dictProgram3 }.
 	
 	dictProfessor1 := {'id' -> 1.
 					   'nome' -> 'Jefferson Santos'.
@@ -90,9 +76,7 @@ MockAPI class >> createWithMockData [
 					   'nome' -> 'Roberto Pimenta'.
 					   'email' -> 'roberto.pimenta@fgv.br'} asDictionary.
 					   
-	professors := Dictionary new.
-	professors at: 1 put: dictProfessor1.
-	professors at: 2 put: dictProfessor2.
+	professors := { dictProfessor1. dictProfessor2 }.
 	
 	dictDiscipline1 := {'id' -> 1.
 					   'codigo' -> 'MAPTD01'.
@@ -110,10 +94,7 @@ MockAPI class >> createWithMockData [
 					   'cargaHoraria' -> '30'} asDictionary.
 					  
 					   
-	disciplines := Dictionary new.
-	disciplines at: 1 put: dictDiscipline1.
-	disciplines at: 2 put: dictDiscipline2.
-	disciplines at: 3 put: dictDiscipline3.
+	disciplines := { dictDiscipline1. dictDiscipline2. dictDiscipline3 }.
 	
 	"Turma de Graduação
 	Horário padrão é opcional para a pós, obrigatório para a graduação"
@@ -210,9 +191,7 @@ MockAPI class >> createWithMockData [
 						 'professor' -> dictProfessor1.
 						 'disciplina' -> dictDiscipline1  } asDictionary.
 						 
-	classOffers := Dictionary new.
-	classOffers at: '35503045-2016-403e-8fab-36453f755d92' put: dictClassOffer1.
-	classOffers at: '35503045-2016-403e-8cde-36453f755d92' put: dictClassOffer2.
+	classOffers := { dictClassOffer1 . dictClassOffer2 }.
 					 
 	^ self new
 			programs: programs;
