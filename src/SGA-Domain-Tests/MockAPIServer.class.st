@@ -4,21 +4,23 @@ Class {
 	#category : #'SGA-Domain-Tests'
 }
 
-{ #category : #accessing }
-MockAPIServer class >> teapotRefreshed [
-	super teapotRefreshed.
+{ #category : #action }
+MockAPIServer class >> rebuildRoutes [
 	
 	self defaultServer initializeTeapotDefaultOptions.
 	self defaultServer createTeapotDefaultRoutes.	
 	
 ]
 
-{ #category : #accessing }
+{ #category : #defaults }
 MockAPIServer >> createTeapotDefaultRoutes [
 	| mockData data |
 	mockData := MockAPI createWithMockData.
 	
 	data := Dictionary new.
+		
+	teapot stop.
+	teapot removeAllDynamicRoutes.
 	
 	teapot
 		GET: '/Programas' ->  [ data at: 'data' put: (mockData programs); yourself ];
@@ -36,7 +38,7 @@ MockAPIServer >> createTeapotDefaultRoutes [
 									data := { 'data' -> { 'token' -> '4302917e-c0bd-4f02-a15b-b7cf42ad6f5c' } asDictionary} asDictionary].
 ]
 
-{ #category : #accessing }
+{ #category : #initialization }
 MockAPIServer >> initializeTeapotDefaultOptions [
 
 	teapot initializeOptions: { #defaultOutput -> #json. 
